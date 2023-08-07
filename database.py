@@ -1,3 +1,8 @@
-from cs50 import SQL
 
-db = SQL("sqlite:///app.db")
+import sqlite3
+
+
+connection = sqlite3.connect('database.db', check_same_thread=False)
+
+
+db = connection.cursor()

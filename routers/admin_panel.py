@@ -32,7 +32,8 @@ def admin_movies():
         length = request.form.get("length")
         rating = request.form.get("rating")
         trailer = request.form.get("trailer")
-        is_featured = True if request.form.get("is_featured") == "on" else False
+        is_featured = True if request.form.get(
+            "is_featured") == "on" else False
         image = request.files.get("poster", None)
         genres = request.form.getlist("genre")
         actors = request.form.getlist("actors")
@@ -147,7 +148,8 @@ def admin_movies_edit(movie_id):
         length = request.form.get("length")
         rating = request.form.get("rating")
         trailer = request.form.get("trailer")
-        is_featured = True if request.form.get("is_featured") == "on" else False
+        is_featured = True if request.form.get(
+            "is_featured") == "on" else False
         image = request.files.get("poster", None)
 
         # If changed image, Upload new image.
@@ -270,7 +272,8 @@ def admin_people_edit(people_id):
 
     if not image:
         try:
-            image = db.execute("SELECT photo FROM people WHERE id = ?")[0]["photo"]
+            image = db.execute("SELECT photo FROM people WHERE id = ?")[
+                0]["photo"]
         except:
             return render_template("failure.html")
     else:

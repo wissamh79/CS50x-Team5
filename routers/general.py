@@ -11,14 +11,15 @@ general_router = Blueprint(
 
 @general_router.get("/")
 def index():
-    featured_movies = db.execute("SELECT * FROM movies WHERE is_featured = True;")
-    featured_shows = db.execute("SELECT * FROM shows WHERE is_featured = True;")
-    movies = db.execute("SELECT * FROM movies ORDER BY release DESC LIMIT 10;")
-    shows = db.execute("SELECT * FROM shows ORDER BY release DESC LIMIT 10;")
+    featured_songs = db.execute(
+        "SELECT * FROM songs WHERE is_featured = True;")
+
+    songs = db.execute("SELECT * FROM songs ORDER BY release DESC LIMIT 10;")
+
     data = {
-        "featured_movies": featured_movies,
-        "featured_shows": featured_shows,
-        "movies": movies,
-        "shows": shows,
+        "featured_songs": featured_songs,
+
+        "songs": songs,
+
     }
     return render_template("index.html", data=data)

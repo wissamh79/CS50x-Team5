@@ -20,8 +20,8 @@ is_admin BOOLEAN NOT NULL DEFAULT False
 CREATE TABLE IF NOT EXISTS singer (
 id INTEGER PRIMARY KEY,
 name TEXT NOT NULL,
-photo TEXT
-birthday date,
+photo TEXT,
+birthday DATE
 );
 
 CREATE TABLE IF NOT EXISTS songs (
